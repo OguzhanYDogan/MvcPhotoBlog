@@ -1,0 +1,26 @@
+﻿@model Gonderi
+@{
+    ViewBag.Title = "Gönderi Sil";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<h3>Aşağıdaki gönderi silinecek onaylıyor musunuz?</h3>
+
+
+<form method="post" enctype="multipart/form-data" asp-action="Sil">
+    <div class="mb-3">
+        <label asp-for="Baslik" class="form-label"></label>
+        <input readonly type="text" asp-for="Baslik" class="form-control" />
+        <span asp-validation-for="Baslik" class="text-danger mt-1"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Resim" class="form-label"></label>
+        <input asp-for="Resim" type="hidden" value="@Model.Resim" />
+        <div>
+            <img src="~/img/upload/@Model.Resim" alt="@Model.Id" class="w-50" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-danger">SİL</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-warning">VAZGEÇ</a>
+</form>

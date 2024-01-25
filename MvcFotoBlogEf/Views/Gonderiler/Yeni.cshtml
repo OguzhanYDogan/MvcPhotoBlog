@@ -1,0 +1,20 @@
+﻿@model YeniGonderiVewModel
+@{
+    ViewBag.Title = "Yeni Gönderi";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<form method="post" enctype="multipart/form-data" asp-action="Yeni">
+    <div class="mb-3">
+        <label asp-for="Baslik" class="form-label"></label>
+        <input type="text" asp-for="Baslik" class="form-control" />
+        <span asp-validation-for="Baslik" class="text-danger mt-1"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Resim" class="form-label"></label>
+        <input type="file" asp-for="Resim" class="form-control" />
+        <span asp-validation-for="Resim" class="text-danger mt-1"></span>
+    </div>
+    <button class="btn btn-primary">EKLE</button>
+</form>
